@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Obuci.me.Data
 {
@@ -6,11 +7,15 @@ namespace Obuci.me.Data
     {
         public Artikl() { }
 
+        [Key]
         public int ID { get; set; }
+
         public string ImeAritkla { get; set; }
         public string Velicina { get; set; }
+        [EnumDataType(typeof(Kategorija))]
         public Kategorija Kategorija { get; set; } 
         public double Cijena { get; set; }
+        public int Kolicina { get; set; }
 
         public int GenerišiID()
         {
