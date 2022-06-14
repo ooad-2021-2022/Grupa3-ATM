@@ -43,6 +43,7 @@ namespace Obuci.me.Controllers
         }
 
         // GET: Artikl/Create
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Administrator")]
         public IActionResult Create()
         {
             return View();
@@ -53,6 +54,7 @@ namespace Obuci.me.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Create([Bind("ID,ImeAritkla,Velicina,Kategorija,Cijena,Kolicina")] Artikl artikl)
         {
             if (ModelState.IsValid)
@@ -65,6 +67,7 @@ namespace Obuci.me.Controllers
         }
 
         // GET: Artikl/Edit/5
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -85,6 +88,7 @@ namespace Obuci.me.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(int id, [Bind("ID,ImeAritkla,Velicina,Kategorija,Cijena,Kolicina")] Artikl artikl)
         {
             if (id != artikl.ID)
@@ -116,6 +120,7 @@ namespace Obuci.me.Controllers
         }
 
         // GET: Artikl/Delete/5
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -134,6 +139,7 @@ namespace Obuci.me.Controllers
         }
 
         // POST: Artikl/Delete/5
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Administrator")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -9,6 +9,7 @@ using Obuci.me.Data;
 
 namespace Obuci.me.Controllers
 {
+    [Microsoft.AspNetCore.Authorization.Authorize]
     public class KorpaController : Controller
     {
         private readonly ApplicationDbContext _context;
